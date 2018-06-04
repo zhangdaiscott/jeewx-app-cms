@@ -1,0 +1,141 @@
+<template lang="wxml">
+  <view class="container">
+  <view class="news-item-container">
+  <repeat for="{{atricles}}" key="index" index="index" item="item">
+  <view class="news-item" @tap="toArticlesInfo({{item.id}})">
+  <view class="news-item-left"><text class="news-item-title">{{item.title}}</text></view>
+  <view class="news-item-right"><image class="news-image" src="{{linkUpload}}{{item.imageHref}}"></image></view>
+  </view>
+  </repeat>
+  </view>
+  </view>
+</template>
+
+
+<script>
+  import wepy from 'wepy';
+  import api from '../api/api';
+  import tip from '../utils/tip';
+
+  export default class ArticleList extends wepy.page {
+    config = {
+      "navigationBarTitleText": '栏目信息',
+      "backgroundTextStyle": 'light',
+      "navigationBarBackgroundColor": '#fff',
+      "navigationBarTextStyle": 'black'
+    };
+    components = {};
+
+    data = {
+      atricles: [],
+      columnId: '',
+      //总页数
+      totalPage: 1,
+      //当前页
+      pageNumber: 1,
+      linkUpload: ''
+    };
+    methods = {
+      toArticlesInfo(articlesId) {
+        wx.navigateTo({
+          url: 'article?articlesId=' + articlesId
+        });
+      }
+    };
+
+    events = {};
+
+    async onLoad(options) {
+      let self = this;
+      var columnId = options.columnId;
+      self.columnId = options.columnId;
+      const arrayJson = await api.getArticlesList({
+        query: {
+          columnId: columnId
+        }
+      });
+      if (arrayJson.data.success == true) {
+        self.atricles = arrayJson.data.obj.list.results;
+        self.totalPage = arrayJson.data.obj.count;
+      } else {
+        tip.error(arrayJson.data.msg);
+      }
+      const upload = api.apiAdUpload;
+      this.linkUpload = upload;
+      self.$apply();
+    };
+
+    /**
+     * 页面上拉触底事件的处理函数
+     * @returns {Promise<void>}
+     */
+    async onReachBottom() {
+      let self = this;
+      // 当前页+1
+      var pageNumber = self.pageNumber + 1;
+      self.pageNumber = pageNumber;
+      if (pageNumber <= self.totalPage) {
+        wx.showLoading({
+          title: '加载中',
+        })
+        // 请求后台，获取下一页的数据。
+        const arrayJson = await api.getArticlesList({
+          query: {
+            columnId: self.columnId,
+            pageNumber: pageNumber
+          }
+        });
+        if (arrayJson.data.success == true) {
+          wx.hideLoading();
+          self.atricles = self.atricles.concat(arrayJson.data.obj.list.results);
+          self.$apply();
+        } else {
+          wx.hideLoading();
+          tip.error(arrayJson.data.msg);
+        }
+      }
+    };
+  }
+</script>
+
+
+<style lang="less">
+  .news-item-container {
+    background-color: #f2f2f2;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .news-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 8px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-bottom: 1px solid #d0d0d0;
+    border-radius: 5px;
+  }
+
+  .news-item-right {
+    width: 80px;
+    height: 80px;
+  }
+
+  .news-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .news-item-title {
+    font-size: 16px;
+  }
+
+</style>

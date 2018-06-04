@@ -1,0 +1,82 @@
+<template lang="wxml">
+  <view class="container">
+  <repeat for="{{menu}}" key="index" index="index" item="item">
+  <view class="card" @tap="toArticlesPage({{item.id}})">
+  <image class="card-image" src="{{linkUpload}}{{item.imageHref}}"></image>
+  <view class="card-content">
+  <view><text class="card-title">{{item.name}}</text></view>
+  <view><text class="card-desc">{{item.content}}</text></view>
+  </view>
+  </view>
+  </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy';
+  import api from '../api/api';
+  import tip from '../utils/tip';
+
+  export default class Theme extends wepy.page {
+    config = {
+      "navigationBarTitleText": '专题栏目',
+      "backgroundTextStyle": 'light',
+      "navigationBarBackgroundColor": '#fff',
+      "navigationBarTextStyle": 'black'
+    };
+    components = {};
+
+    data = {
+      menu: [],
+      linkUpload: ''
+    };
+    methods = {
+      toArticlesPage(columnId) {
+        wx.navigateTo({
+          url: 'articleList?columnId=' + columnId
+        });
+      }
+    };
+
+    events = {};
+
+    async onLoad() {
+      //获取所有栏目信息
+      const json = await api.getMenuList();
+      this.menu = json.data;
+      const upload = api.apiAdUpload;
+      this.linkUpload = upload;
+      this.$apply();
+    };
+  }
+</script>
+
+
+<style lang="less">
+  .card {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: #FFF;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 168px;
+  }
+
+  .card-content {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 10px;
+  }
+
+  .card-title {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .card-desc {
+    font-size: 14px;
+  }
+</style>

@@ -1,0 +1,15 @@
+{
+	"description": "A WePY project",
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wx8cca9876c0e5f5fd",
+	"projectname": "jeewx-app-cms",
+	"miniprogramRoot": "./dist",
+	"condition": {}
+}

@@ -1,0 +1,170 @@
+<template lang="wxml">
+  <view class="tab">
+  <repeat for="{{menu}}" key="index" index="index" item="item">
+  <view class="tab_item{{active == item.id ? ' active' : ''}}" @tap="changePage({{item.id}})"><text class="title">{{item.name}}</text></view>
+  </repeat>
+  </view>
+  <view style="margin-top:8px;">
+  <repeat for="{{array}}" key="index" index="index" item="item">
+  <view class="news-item" @tap="toArticlesContent({{item.id}})">
+  <view class="news-item-left">
+  <view class="news-item-title"><text >{{item.title}}</text></view>
+  <view  class="news-item-content"><text>{{item.summary}}</text></view>
+  </view>
+  <view class="news-item-right">
+  <image class="news-image" style="width:73px;height:73px;" src="{{linkUpload}}{{item.imageHref}}"></image>
+  </view>
+  </view>
+  </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../api/api'
+  import tip from '../utils/tip'
+
+  export default class Tab extends wepy.component {
+    components = {};
+    props = {
+      active: {
+        twoWay: true
+      }
+    };
+    data = {
+      array: [],
+      menu: [],
+      linkUpload: ''
+    };
+    methods = {
+      changePage: async function (columnId) {
+        this.active = columnId
+        const arrayJson = await api.getArticlesList({
+          query: {
+            columnId: columnId
+          }
+        })
+        if (arrayJson.data.success == true) {
+          this.array = arrayJson.data.obj.list.results
+        } else {
+          tip.error(arrayJson.data.msg)
+        }
+        this.$apply()
+      },
+      toArticlesContent(articlesId) {
+        wx.navigateTo({
+          url: 'article?articlesId=' + articlesId
+        });
+      }
+    };
+    events = {};
+
+    async onLoad() {
+      //获取所有栏目信息
+      const json = await api.getMenuList();
+      const upload = api.apiAdUpload;
+      this.linkUpload = upload;
+      this.menu = json.data;
+
+      //初始化加载第一个栏目文章信息
+      var columnId = this.menu[0].id;
+      this.active = columnId;
+      const arrayJson = await api.getArticlesList({
+        query: {
+          columnId: columnId
+        }
+      });
+      if (arrayJson.data.success == true) {
+        this.array = arrayJson.data.obj.list.results;
+      } else {
+        tip.error(arrayJson.data.msg);
+      }
+      this.$apply();
+    }
+  }
+</script>
+
+<style lang="less">
+  .tab {
+    color: #7b7b7b;
+    height: 45px;
+    width: 100%;
+    border-top: 1px solid #dad9d6;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    white-space: nowrap;
+    .tab_item {
+      &.active {
+        color: #13b113;
+        height: 30px;
+      }
+      display: inline-block;
+      width: 20%;
+      text-align: center;
+    }
+    .title {
+      padding-top: 10px;
+      display: block;
+    }
+  }
+
+  .news-item-container {
+    background-color: #f2f2f2;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .news-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 8px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-bottom: 1px solid #d0d0d0;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .news-item-right {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+  }
+  .news-item-left {
+    width: 80px;
+    height: 80px;
+    margin-left: 175rpx;
+  }
+  .news-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .news-item-title {
+    word-break:keep-all;
+    white-space:nowrap;
+    width: 500rpx;
+    height: 50rpx;
+    font-size:11pt;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .news-item-content {
+    font-size: 8pt;
+    width: 500rpx;
+    height:101rpx;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    mergin-top:-30rpx;
+    color:#a9a9a9;
+    line-height:35rpx;
+  }
+</style>

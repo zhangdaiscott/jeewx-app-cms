@@ -1,0 +1,55 @@
+<template lang="wxml">
+  <swiper style="height:400rpx" indicator-dots=true autoplay=true interval=2000 duration=500 circular=true >
+  <block wx:for="{{adImgs}}">
+  <swiper-item>
+  <image src="{{adUpload}}{{item.imageHref}}" style="width:100%;height:400rpx"/>
+  </swiper-item>
+  </block>
+  </swiper>
+  <tab></tab>
+</template>
+
+<script>
+  import wepy from 'wepy';
+  import Tab from '../components/tab';
+  import api from '../api/api';
+  import tip from '../utils/tip';
+
+  export default class Index extends wepy.page {
+    config = {
+      "navigationBarTitleText": '捷微小程序官网',
+      "backgroundTextStyle": 'light',
+      "navigationBarBackgroundColor": '#fff',
+      "navigationBarTextStyle": 'black'
+    };
+    components = {
+      tab: Tab
+    };
+
+    data = {
+      adImgs: [],
+      adUpload: ''
+    };
+    methods = {};
+
+    events = {};
+
+    async onLoad() {
+      //获取API接口方法
+      const json = await api.queryAllAdImages();
+      if (json.data.success == true) {
+        this.adImgs = json.data.obj;
+      } else {
+        tip.error(json.data.msg);
+      }
+      const upload = api.apiAdUpload;
+      this.adUpload = upload;
+      this.$apply();
+    };
+  }
+</script>
+
+
+<style lang="less">
+
+</style>
