@@ -1,21 +1,25 @@
 # jeewx-app-cms
 
-#### 项目介绍
+### 项目介绍
 Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言，具备cms网站的基本功能，能够打造简单易用的公司官网。项目结构合理，逻辑清晰，代码规范，非常适合作为小程序开发的入门项目。
 
-#### 开发工具
+### 开发工具
 本项目推荐使用WebStorm+ Nodejs+微信web开发者工具作为开发和调试环境。 开发工具打包下载：
-https://pan.baidu.com/s/1ojF_aqKtf3ooQ15FNdtTJQ 密码：0wa5
+	https://pan.baidu.com/s/1ojF_aqKtf3ooQ15FNdtTJQ 密码：0wa5
 
-#### 开发常用命令
+### 开发常用命令
 
-安装（更新）wepy命令行工具 ：npm install wepy-cli -g
+#### 1.安装（更新）wepy命令行工具
+	npm install wepy-cli -g
 
-安装依赖包：npm install
+#### 2.安装依赖包
+	npm install
 
-开发实时编译：npm run dev
+#### 3.开发实时编译
+	npm run dev
 
-生产压缩：npm run build //上传代码时，请先执行此命令，否则会提示包体积过大
+#### 4.生产压缩
+	npm run build //上传代码时，请先执行此命令，否则会提示包体积过大
 
 
 #### 开发使用说明(重要)
@@ -28,18 +32,20 @@ https://pan.baidu.com/s/1ojF_aqKtf3ooQ15FNdtTJQ 密码：0wa5
 
 4、微信开发者工具-->项目-->关闭代码压缩上传。  <font color=red>重要：开启后，会导致真机computed, props.sync 等等属性失效。</font> 
 
-#### 文档帮助
+### 文档帮助
 
-wepy开发文档地址：https://tencent.github.io/wepy/
+#### wepy开发文档地址：
+	https://tencent.github.io/wepy/
 
-小程序开发文档：http://mp.weixin.qq.com/debug/wxadoc/dev/
+#### 小程序开发文档
+	http://mp.weixin.qq.com/debug/wxadoc/dev/
 
-#### 在线体验
+### 在线体验
 扫码关注微信公众号【JEEWX捷微管家】体验，或直接扫描小程序码。
 
 ![github](https://img-blog.csdn.net/20180604194414442?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
 	
-#### 目录结构
+### 目录结构
 
     ├── api
     │   └── api.js              //接口
@@ -64,21 +70,22 @@ wepy开发文档地址：https://tencent.github.io/wepy/
     │   └── contact.wpy			//联系我们页
     │   └── index.wpy			//首页
     │   └── theme.wpy			//专题页
+    ├── plugins                 //插件
+    │   └── wxParse             //富文本
+    │       ├── html2json.js
+    │       ├── htmlparser.js
+    │       ├── showdown.js
+    │       ├── wxDiscode.js
+    │       ├── wxParse.js
+    │       ├── wxParse.wxml
+    │       └── wxParse.wxss    
     └── utils                   //工具类
-    │   ├── md5.js                  //md5
-    │   ├── tip.js                  //提示弹框组件
-    │   ├── util.js                 //工具
-    │   └── wxRequest.js            //ajax请求
-    └── wxParse             //富文本
-        ├── html2json.js
-        ├── htmlparser.js
-        ├── showdown.js
-        ├── wxDiscode.js
-        ├── wxParse.js
-        ├── wxParse.wxml
-        └── wxParse.wxss    
+        ├── md5.js                  //md5
+        ├── tip.js                  //提示弹框组件
+        ├── util.js                 //工具
+        └── wxRequest.js            //ajax请求
 
-	
+		
 ### 功能截图
 ![github](https://img-blog.csdn.net/20180604194422754?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
 ![github](https://img-blog.csdn.net/20180604194436526?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
@@ -87,7 +94,7 @@ wepy开发文档地址：https://tencent.github.io/wepy/
 ![github](https://img-blog.csdn.net/20180604194452656?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
 
 
-#### 技术交流
+### 技术交流
 
 *   官 	  网：	www.jeewx.com
 *   邮    箱：	jeecg@sina.com
