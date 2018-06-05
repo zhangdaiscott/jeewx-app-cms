@@ -25,17 +25,17 @@ Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言�
 
 4、微信开发者工具-->项目-->关闭代码压缩上传。  <font color=red>重要：开启后，会导致真机computed, props.sync 等等属性失效。</font> 
 
-### 开发工具
-本项目推荐使用WebStorm + Nodejs + 微信web开发者工具作为开发和调试环境。 开发工具打包下载：
-	https://pan.baidu.com/s/1ojF_aqKtf3ooQ15FNdtTJQ 密码：0wa5
-	
-### 文档帮助
 
-#### wepy开发文档地址：
-	https://tencent.github.io/wepy/
+### 技术交流
 
-#### 小程序开发文档
-	http://mp.weixin.qq.com/debug/wxadoc/dev/
+*   官 	  网：	www.jeewx.com
+*   邮    箱：	jeecg@sina.com
+*   QQ交流群：	131894955
+*   文档帮助：
+
+  * [wepy开发文档](https://tencent.github.io/wepy/) 
+  * [小程序开发文档](https://tencent.github.io/wepy/)
+  * [小程序实战开发](http://wepydemo.mydoc.io/?t=286156)
 
 ### 在线体验
 扫码下方二维码体验小程序。
@@ -89,10 +89,3 @@ Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言�
 ![github](https://img-blog.csdn.net/20180604194441960?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
 ![github](https://img-blog.csdn.net/20180604194447937?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
 ![github](https://img-blog.csdn.net/20180604194452656?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
-
-
-### 技术交流
-
-*   官 	  网：	www.jeewx.com
-*   邮    箱：	jeecg@sina.com
-*   QQ交流群：	131894955
