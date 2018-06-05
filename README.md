@@ -38,9 +38,9 @@ Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言�
 	http://mp.weixin.qq.com/debug/wxadoc/dev/
 
 ### 在线体验
-扫码关注微信公众号【JEEWX捷微管家】体验，或直接扫描小程序码。
+扫码下方二维码体验小程序。
 
-![github](https://img-blog.csdn.net/20180604194414442?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
+![github](https://img-blog.csdn.net/20180605175157225?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
 	
 ### 目录结构
 
