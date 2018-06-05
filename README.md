@@ -64,22 +64,21 @@ wepy开发文档地址：https://tencent.github.io/wepy/
     │   └── contact.wpy			//联系我们页
     │   └── index.wpy			//首页
     │   └── theme.wpy			//专题页
-    ├── plugins                 //插件
-    │   └── wxParse             //富文本
-    │       ├── html2json.js
-    │       ├── htmlparser.js
-    │       ├── showdown.js
-    │       ├── wxDiscode.js
-    │       ├── wxParse.js
-    │       ├── wxParse.wxml
-    │       └── wxParse.wxss    
     └── utils                   //工具类
-        ├── md5.js                  //md5
-        ├── tip.js                  //提示弹框组件
-        ├── util.js                 //工具
-        └── wxRequest.js            //ajax请求
+    │   ├── md5.js                  //md5
+    │   ├── tip.js                  //提示弹框组件
+    │   ├── util.js                 //工具
+    │   └── wxRequest.js            //ajax请求
+    └── wxParse             //富文本
+        ├── html2json.js
+        ├── htmlparser.js
+        ├── showdown.js
+        ├── wxDiscode.js
+        ├── wxParse.js
+        ├── wxParse.wxml
+        └── wxParse.wxss    
 
-		
+	
 ### 功能截图
 ![github](https://img-blog.csdn.net/20180604194422754?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
 ![github](https://img-blog.csdn.net/20180604194436526?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
