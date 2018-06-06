@@ -40,7 +40,7 @@ Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言�
 ### 在线体验
 扫码下方二维码体验小程序。
 
-![github](https://img-blog.csdn.net/20180605175157225?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
+![github](http://img-blog.csdn.net/20180605175157225?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
 	
 ### 目录结构
 
@@ -84,8 +84,8 @@ Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言�
 
 		
 ### 功能截图
-![github](https://img-blog.csdn.net/20180604194422754?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
-![github](https://img-blog.csdn.net/20180604194436526?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
-![github](https://img-blog.csdn.net/20180604194441960?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
-![github](https://img-blog.csdn.net/20180604194447937?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
-![github](https://img-blog.csdn.net/20180604194452656?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
+![github](http://img-blog.csdn.net/20180604194422754?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
+![github](http://img-blog.csdn.net/20180604194436526?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
+![github](http://img-blog.csdn.net/20180604194441960?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
+![github](http://img-blog.csdn.net/20180604194447937?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
+![github](http://img-blog.csdn.net/20180604194452656?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nZGFpc2NvdHQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70 "jeewx-app-cms")
