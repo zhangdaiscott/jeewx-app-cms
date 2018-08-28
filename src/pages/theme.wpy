@@ -1,7 +1,7 @@
 <template lang="wxml">
   <view class="container">
   <repeat for="{{menu}}" key="index" index="index" item="item">
-  <view class="card" @tap="toArticlesPage({{item.id}})">
+  <view class="card" @tap="toArticlesPage({{item.id}},{{item.name}})">
   <image class="card-image" src="{{linkUpload}}{{item.imageHref}}"></image>
   <view class="card-content">
   <view><text class="card-title">{{item.name}}</text></view>
@@ -31,9 +31,9 @@
       linkUpload: ''
     };
     methods = {
-      toArticlesPage(columnId) {
+      toArticlesPage(columnId,columnName) {
         wx.navigateTo({
-          url: 'articleList?columnId=' + columnId
+          url: 'articleList?columnId=' + columnId + '&columnName=' + columnName
         });
       }
     };

@@ -4,7 +4,7 @@
   <repeat for="{{atricles}}" key="index" index="index" item="item">
   <view class="news-item" @tap="toArticlesInfo({{item.id}})">
   <view class="news-item-left"><text class="news-item-title">{{item.title}}</text></view>
-  <view class="news-item-right"><image class="news-image" src="{{linkUpload}}{{item.imageHref}}"></image></view>
+  <view class="news-item-right"><image class="news-image" src="{{domain + item.imageHref}}"></image></view>
   </view>
   </repeat>
   </view>
@@ -33,7 +33,7 @@
       totalPage: 1,
       //当前页
       pageNumber: 1,
-      linkUpload: ''
+      domain: ''
     };
     methods = {
       toArticlesInfo(articlesId) {
@@ -45,25 +45,39 @@
 
     events = {};
 
-    async onLoad(options) {
+    onLoad(options) {
       let self = this;
-      var columnId = options.columnId;
       self.columnId = options.columnId;
+      wx.setNavigationBarTitle({
+        title: options.columnName
+      })
+
+      self.domain = api.apiAdUpload;
+      self.$apply();
+      self.getArticlesList();
+    };
+
+    async getArticlesList(){
+      let self = this;
+      console.log(self.columnId);
       const arrayJson = await api.getArticlesList({
         query: {
-          columnId: columnId
+          columnId: self.columnId
         }
       });
+//      console.log(arrayJson);
+
       if (arrayJson.data.success == true) {
         self.atricles = arrayJson.data.obj.list.results;
         self.totalPage = arrayJson.data.obj.count;
+//        console.log(self.atricles);
+        console.log(self.domain);
+        console.log(self.totalPage);
+        self.$apply();
       } else {
         tip.error(arrayJson.data.msg);
       }
-      const upload = api.apiAdUpload;
-      this.linkUpload = upload;
-      self.$apply();
-    };
+    }
 
     /**
      * 页面上拉触底事件的处理函数
