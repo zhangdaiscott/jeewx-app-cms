@@ -1,8 +1,8 @@
 <template lang="wxml">
-  <swiper style="height:400rpx" indicator-dots=true autoplay=true interval=2000 duration=500 circular=true >
+  <swiper style="height:400rpx" indicator-dots="true" autoplay="true" interval="2000" duration="500" circular="true" >
   <block wx:for="{{adImgs}}">
   <swiper-item>
-  <image src="{{adUpload}}{{item.imageHref}}" style="width:100%;height:400rpx"/>
+  <image src="{{adUpload}}{{item.imageHref}}" style="width:100%;height:400rpx"  @tap="goToAdvert({{item.link}})"/>
   </swiper-item>
   </block>
   </swiper>
@@ -20,7 +20,8 @@
       "navigationBarTitleText": '捷微小程序官网',
       "backgroundTextStyle": 'light',
       "navigationBarBackgroundColor": '#fff',
-      "navigationBarTextStyle": 'black'
+      "navigationBarTextStyle": 'black',
+      "enablePullDownRefresh": true
     };
     components = {
       tab: Tab
@@ -30,7 +31,33 @@
       adImgs: [],
       adUpload: ''
     };
-    methods = {};
+    methods = {
+      goToAdvert(url) {
+            console.log("url===" + url);
+            if (url.length == 0) {
+              return;
+            }
+            wepy.navigateTo({
+              url: url
+            })
+      },
+      onShareAppMessage(res){
+          if (res.from === 'button') {
+              console.log("来自页面内转发按钮");
+              console.log(res.target);
+          }
+          return {
+              title: '捷微小程序官网',
+              path: 'pages/index',
+              success: function(res){
+                  console.log("转发成功", res);
+              },
+              fail: function(res){
+                  console.log("转发失败", res);
+              }
+          }
+      }
+    };
 
     events = {};
 
@@ -46,6 +73,13 @@
       this.adUpload = upload;
       this.$apply();
     };
+
+    onReachBottom () {
+      this.$invoke('tab', 'loadArticle');
+    };
+    onPullDownRefresh(){
+      wx.stopPullDownRefresh()
+    }
   }
 </script>
 

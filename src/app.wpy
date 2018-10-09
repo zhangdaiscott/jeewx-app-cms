@@ -18,9 +18,9 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/index',
-      'pages/article',
       'pages/theme',
       'pages/articleList',
+      'pages/article',
       'pages/contact'
     ],
     window: {
@@ -36,8 +36,8 @@ export default class extends wepy.app {
       backgroundColor: '#ffffff',
       list: [{
         pagePath: 'pages/index',
-        iconPath: 'img/icon_API.png',
-        selectedIconPath: 'img/icon_API_HL.png',
+        iconPath: 'img/home.png',
+        selectedIconPath: 'img/home_HL.png',
         text: '主页'
       }, {
         pagePath: 'pages/theme',
@@ -47,7 +47,7 @@ export default class extends wepy.app {
       }, {
         pagePath: 'pages/contact',
         iconPath: 'img/contact.png',
-        selectedIconPath: 'img/contact_selected.png',
+        selectedIconPath: 'img/contact_HL.png',
         text: '联系我们'
       }]
     }

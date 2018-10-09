@@ -1,18 +1,23 @@
 <template lang="wxml">
   <view class="tab">
   <repeat for="{{menu}}" key="index" index="index" item="item">
+  <block wx:if="{{item.type=='coulmn'}}">
   <view class="tab_item{{active == item.id ? ' active' : ''}}" @tap="changePage({{item.id}})"><text class="title">{{item.name}}</text></view>
+  </block>
+  <block wx:if="{{item.type=='link'}}">
+    <view class="tab_item{{active == item.id ? ' active' : ''}}" @tap="goToMenu({{item.href}})"><text class="title">{{item.name}}</text></view>
+   </block>
   </repeat>
   </view>
   <view style="margin-top:8px;">
   <repeat for="{{array}}" key="index" index="index" item="item">
   <view class="news-item" @tap="toArticlesContent({{item.id}})">
   <view class="news-item-left">
-  <view class="news-item-title"><text >{{item.title}}</text></view>
-  <view  class="news-item-content"><text>{{item.summary}}</text></view>
+  <image class="news-image" style="width:73px;height:73px" mode="aspectFit" src="{{linkUpload}}{{item.imageHref}}"></image>
   </view>
   <view class="news-item-right">
-  <image class="news-image" style="width:73px;height:73px;" src="{{linkUpload}}{{item.imageHref}}"></image>
+    <view class="news-item-title"><text >{{item.title}}</text></view>
+    <view  class="news-item-content"><text>{{item.summary}}</text></view>
   </view>
   </view>
   </repeat>
@@ -34,17 +39,49 @@
     data = {
       array: [],
       menu: [],
-      linkUpload: ''
+      linkUpload: '',
+      pageSize:6,
+      pageNo:1,
+      loadFlag:true
+    };
+
+    async loadArticle(){
+      var col_id = this.active;
+      var pageNumber = this.pageNo;
+      if(!this.loadFlag){
+          console.log('无数据');
+      }else{
+            const arrayJson = await api.getArticlesList({
+                query: {
+                    columnId: col_id,
+                    pageNumber: pageNumber
+                }
+            });
+            if (arrayJson.data.success == true) {
+               this.pageNo = this.pageNo + 1;
+               var queryArray = arrayJson.data.obj.list.results;
+               if(queryArray.length<=0){
+                  this.loadFlag = false;
+               }
+               this.array = this.array.concat(queryArray);
+            } else {
+              tip.error(arrayJson.data.msg);
+            }
+            this.$apply();
+      }
     };
     methods = {
       changePage: async function (columnId) {
-        this.active = columnId
+        this.active = columnId;
+        this.pageNo = 1;
+        this.loadFlag = true;
         const arrayJson = await api.getArticlesList({
           query: {
             columnId: columnId
           }
         })
         if (arrayJson.data.success == true) {
+          this.pageNo = 2;
           this.array = arrayJson.data.obj.list.results
         } else {
           tip.error(arrayJson.data.msg)
@@ -55,7 +92,16 @@
         wx.navigateTo({
           url: 'article?articlesId=' + articlesId
         });
-      }
+      },
+      goToMenu(url) {
+                  console.log("url===" + url);
+                  if (url.length == 0) {
+                    return;
+                  }
+                  wepy.navigateTo({
+                    url: url
+                  })
+            }
     };
     events = {};
 
@@ -75,6 +121,7 @@
         }
       });
       if (arrayJson.data.success == true) {
+        this.pageNo = this.pageNo + 1;
         this.array = arrayJson.data.obj.list.results;
       } else {
         tip.error(arrayJson.data.msg);
@@ -93,18 +140,21 @@
     background-color: #f7f7f7;
     font-size: 14px;
     white-space: nowrap;
+    display:flex;
     .tab_item {
       &.active {
         color: #13b113;
         height: 30px;
       }
-      display: inline-block;
-      width: 20%;
+      display: flex;
+      width: 100%;
       text-align: center;
     }
     .title {
-      padding-top: 10px;
-      display: block;
+      /* padding-top: 10px;
+      display: block; */
+      line-height:45px;
+      flex:1;
     }
   }
 
@@ -134,14 +184,12 @@
   }
 
   .news-item-right {
-    width: 80px;
-    height: 80px;
-    position: absolute;
+    overflow:hidden
   }
   .news-item-left {
     width: 80px;
     height: 80px;
-    margin-left: 175rpx;
+    float:left
   }
   .news-image {
     width: 80px;

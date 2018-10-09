@@ -1,10 +1,10 @@
 <template lang="wxml">
   <import src="../wxParse/wxParse.wxml"/>
-  <view class="art-header" style="display:display">
+  <view class="art-header" style="display:display;overflow-x:hidden;">
   <image class="art-img" src="{{imageHref}}"></image>
   <!--<view class="art-title">{{articles.title}}</view>-->
   </view>
-  <view class="wxParse-p big_images">
+  <view class="wxParse-p big_images" style="overflow-x:hidden;">
   <!--<rich-text class="art-content" nodes="{{articles.content}}" ></rich-text>-->
   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
   </view>
@@ -33,7 +33,25 @@
       detail: {},
       imageHref :''
     };
-    methods = {};
+    methods = {
+      onShareAppMessage(res){
+          var that = this;
+          if (res.from === 'button') {
+              console.log("来自页面内转发按钮");
+              console.log(res.target);
+          }
+          return {
+              title: that.detail.title,
+              path: 'pages/article?articlesId='+ that.articlesId,
+              success: function(res){
+                  console.log("转发成功", res);
+              },
+              fail: function(res){
+                  console.log("转发失败", res);
+              }
+          }
+      }
+    };
 
     events = {};
 
@@ -67,6 +85,7 @@
         console.log(that.imageHref);
         console.log(that.domain);
         WxParse.wxParse('article', 'html', that.detail.content, this);
+        that.$apply();
       } else {
         tip.error(articlesJson.data.msg);
       }

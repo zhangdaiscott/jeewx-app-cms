@@ -3,7 +3,7 @@ import {
 } from '../utils/wxRequest';
 
 let env = "-test" //-dev 或者 -test
-const domain = 'https://app.jeewx.com/p3'
+const domain = 'https://app.h5huodong.com'
 //const domain = 'http://localhost/jeecg-p3-web'
 //定义广告位全局变量，用于页面获取
 const apiAdUpload =  domain + '/upload/img/cms/'

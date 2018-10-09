@@ -3,8 +3,13 @@
   <view class="news-item-container">
   <repeat for="{{atricles}}" key="index" index="index" item="item">
   <view class="news-item" @tap="toArticlesInfo({{item.id}})">
-  <view class="news-item-left"><text class="news-item-title">{{item.title}}</text></view>
-  <view class="news-item-right"><image class="news-image" src="{{domain + item.imageHref}}"></image></view>
+  <view class="news-item-left">
+    <image class="news-image" style="width:73px;height:73px;" src="{{domain + item.imageHref}}"></image>
+    </view>
+    <view class="news-item-right">
+      <view class="news-item-title"><text >{{item.title}}</text></view>
+      <view  class="news-item-content"><text>{{item.summary}}</text></view>
+    </view>
   </view>
   </repeat>
   </view>
@@ -115,41 +120,61 @@
 
 <style lang="less">
   .news-item-container {
-    background-color: #f2f2f2;
-    width: 100%;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
+      background-color: #f2f2f2;
+      width: 100%;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
 
-  .news-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 8px;
-    padding-top: 8px;
-    padding-right: 8px;
-    padding-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-top: 8px;
-    background-color: #fff;
-    border: 1px solid #eaeaea;
-    border-bottom: 1px solid #d0d0d0;
-    border-radius: 5px;
-  }
+    .news-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 8px;
+      padding-top: 8px;
+      padding-right: 8px;
+      padding-bottom: 8px;
+      margin-left: 8px;
+      margin-right: 8px;
+      margin-top: 8px;
+      background-color: #fff;
+      border: 1px solid #eaeaea;
+      border-bottom: 1px solid #d0d0d0;
+      border-radius: 5px;
+      position: relative;
+    }
 
-  .news-item-right {
-    width: 80px;
-    height: 80px;
-  }
+    .news-item-right {
+      overflow:hidden
+    }
+    .news-item-left {
+      width: 80px;
+      height: 80px;
+      float:left
+    }
+    .news-image {
+      width: 80px;
+      height: 80px;
+    }
 
-  .news-image {
-    width: 80px;
-    height: 80px;
-  }
-
-  .news-item-title {
-    font-size: 16px;
-  }
+    .news-item-title {
+      word-break:keep-all;
+      white-space:nowrap;
+      width: 500rpx;
+      height: 50rpx;
+      font-size:11pt;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .news-item-content {
+      font-size: 8pt;
+      width: 500rpx;
+      height:101rpx;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      mergin-top:-30rpx;
+      color:#a9a9a9;
+      line-height:35rpx;
+    }
 
 </style>
