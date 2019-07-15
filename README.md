@@ -1,5 +1,5 @@
 ### 项目介绍
-Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言，具备cms网站的基本功能，能够打造简单易用的公司官网。
+Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言，具备cms网站的基本功能，可以快速搭建小程序官网。
 
 JAVA后台代码下载地址： https://github.com/zhangdaiscott/jeewx-boot
 
