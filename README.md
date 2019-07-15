@@ -29,13 +29,11 @@ Jeewx-app-cms是jeewx开发的小程序网站项目，基于小程序wepy语言�
 ### 技术交流
 
 *   官 	  网：	www.jeewx.com
-*   邮    箱：	jeecg@sina.com
-*   QQ交流群：	131894955
-*   文档帮助：
+*   QQ交流群：	97460170
+*  	[入门教程](http://shop.jeewx.com/#/doc/rumen)
+* 	[常见问题](http://shop.jeewx.com/#/doc/wepydevelop/common-problems)
+* 	[wepy开发文档](https://tencent.github.io/wepy/) 
 
-  * [wepy开发文档](https://tencent.github.io/wepy/) 
-  * [小程序开发文档](https://tencent.github.io/wepy/)
-  * [小程序实战开发](http://wepydemo.mydoc.io/?t=286156)
 
 ### 在线体验
 扫码下方二维码体验小程序。
