@@ -30,10 +30,10 @@ JAVA后台代码下载地址： https://github.com/zhangdaiscott/jeewx-boot
 
 ### 技术交流
 
-*   官 	  网：	www.jeewx.com
 *   QQ交流群：	97460170
 *  	[入门教程](http://shop.jeewx.com/#/doc/rumen)
 * 	[常见问题](http://shop.jeewx.com/#/doc/wepydevelop/common-problems)
+* 	[小程序官网发布教程](http://shop.jeewx.com/#/doc/projectreleased/CMS-release)
 * 	[wepy开发文档](https://tencent.github.io/wepy/) 
 
 
