@@ -33,15 +33,22 @@ JAVA后台代码下载地址： https://github.com/zhangdaiscott/jeewx-boot
 *   QQ交流群：	97460170
 *  	[入门教程](http://shop.jeewx.com/#/doc/rumen)
 * 	[常见问题](http://shop.jeewx.com/#/doc/wepydevelop/common-problems)
-* 	[小程序官网发布教程](http://shop.jeewx.com/#/doc/projectreleased/CMS-release)
 * 	[wepy开发文档](https://tencent.github.io/wepy/) 
+
+
+	
+### 快速安装教程
+* [小程序官网发布教程](http://shop.jeewx.com/#/doc/projectreleased/CMS-release)
+* [小程序微网站安装视频](http://www.h5huodong.com/h5/vdetail.html?id=ff80808166d4317b0166d43c3e87008f)
 
 
 ### 在线体验
 扫码下方二维码体验小程序。
 
 ![github](https://camo.githubusercontent.com/216b65a5ed50cea24e3e335e20e5d1fdd930f8a2/687474703a2f2f696d672d626c6f672e6373646e2e6e65742f32303138303630353137353135373232353f77617465726d61726b2f322f746578742f6148523063484d364c7939696247396e4c6d4e7a5a473475626d56304c33706f5957356e5a47467063324e766448513d2f666f6e742f3561364c354c32542f666f6e7473697a652f3430302f66696c6c2f49304a42516b46434d413d3d2f646973736f6c76652f3730 "jeewx-app-cms")
-	
+
+
+
 ### 目录结构
 
     ├── api
