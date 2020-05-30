@@ -97,7 +97,7 @@
 
 <style lang="less">
   @import "../wxParse/wxParse.wxss";
-
+  view{max-width:100%;}
   .art-header {
     position: relative;
     width: 100%;

@@ -1,5 +1,9 @@
 <template lang="wxml">
-  <map id="map" longitude="{{siteInfo.longitude}}" latitude="{{siteInfo.latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
+  <map id="map" longitude="{{siteInfo.longitude}}" latitude="{{siteInfo.latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;">
+  <cover-view class='logo'>
+  <cover-image class='logo-img' src='{{linkUpload}}{{siteInfo.siteLogo}}'></cover-image>
+  </cover-view>
+  </map>
   <view class=".card-content">
   <rich-text class="card-desc" nodes="{{siteInfo.recordInformation}}" ></rich-text>
   </view>
@@ -28,17 +32,7 @@
         width: 30,
         height: 30
       }],
-      controls: [{
-        id: 1,
-        iconPath: '../img/logo.png',
-        position: {
-          left: 0,
-          top: 300 - 50,
-          width: 300,
-          height: 50
-        },
-        clickable: true
-      }],
+      controls: [],
       regionchange(e) {//视野发生是触发
         console.log(e.type)
       },
@@ -95,5 +89,20 @@
 
   .card-desc {
     font-size: 14px;
+  }
+
+  .logo{
+  width: 95%;
+  height: 120rpx;
+  /* position: fixed; */
+  position: absolute;
+  left: 0rpx;
+  bottom:0rpx;
+  }
+
+  .logo-img{
+  position: absolute;
+  top: 0;
+  bottom: 0;
   }
 </style>

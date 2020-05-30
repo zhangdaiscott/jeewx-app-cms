@@ -3,7 +3,7 @@ import util from './util';
 import md5 from './md5';
 import tip from './tip';
 
-const API_SECRET_KEY = 'app.h5huodong.com'
+const API_SECRET_KEY = 'yun.jeecg.org'
 const TIMESTAMP = util.getCurrentTime()
 const MAIN_ID = 'ff808081661e74bb01661f12de5e03d6'
 const SIGN = md5.hex_md5((TIMESTAMP + API_SECRET_KEY).toLowerCase())
